@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stack Implementation</title>
+</head>
+<body>
+    <script>
+        function Stack() {
+            let items = ["rama", "suma", "geetha", "padhma"]; 
+
+            this.push = function(x) {
+                items.push(x); 
+            };
+
+            this.pop = function() {
+                return items.pop(); 
+            };
+
+            this.peek = function() {
+                return items[items.length - 1]; 
+            };
+
+            this.clear = function() {
+                items.length = 0; 
+            };
+
+            this.isEmpty = function() {
+                return items.length === 0; 
+            };
+
+            this.size = function() {
+                return items.length; 
+            };
+
+            this.print = function() {
+                console.log(items.toString()); 
+            };
+        }
+
+        
+        
+        let obj = new Stack();
+
+        obj.push("A"); 
+        obj.pop(); 
+        console.log("Stack size:", obj.size()); 
+        obj.print(); 
+        console.log("Top element:", obj.peek()); 
+        console.log("Is stack empty?", obj.isEmpty()); 
+
+        
+
+    </script>
+</body>
+</html>
