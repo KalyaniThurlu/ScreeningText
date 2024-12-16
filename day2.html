@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stack Using Symbol And WeakMap</title>
+</head>
+<body>
+    <script >
+        let _Arr = Symbol(); 
+
+class Stack {
+    constructor() {
+        this[_Arr] = []; 
+    }
+
+    
+    push(item) {
+        return this[_Arr].push(item);
+    }
+
+    
+    pop() {
+        return this[_Arr].pop();
+    }
+
+
+    peek() {
+        return this[_Arr][this[_Arr].length - 1]; 
+    }
+
+    
+    clear() {
+        this[_Arr] = []; 
+    }
+
+    
+    size() {
+        return this[_Arr].length;
+    }
+    isEmpty(){
+        return this[_Arr].length===0
+    }
+
+
+    
+    print() {
+        console.log(this[_Arr].toString());
+    }
+}
+
+
+
+let results = new Stack();
+
+results.push("A"); 
+results.push("B");
+results.push("c")
+results.print();    
+
+console.log(results.peek());
+console.log(results.size()); 
+
+results.pop();      
+
+results.print();  
+console.log(results.isEmpty())  ;
+let items = new WeakMap();
+class Stacks{
+    constructor(){
+        items.set(this,[])
+
+    }
+    push(elements){
+        let setter= items.
+        get(this)
+        setter.push(elements)
+
+    }
+    pop(){
+        let popelemt=items.get(this)
+        return popelemt.pop()
+    }
+    peek(){
+        let expeek=items.get(this)
+        return expeek[expeek.length-1]
+    }
+    clear(){
+       
+        items.set(this,[])
+    }
+    isEmpty(){
+        let exisempty=items.get(this)
+        return exisempty.length===0
+    }
+    print(){
+        let exprint=items.get(this)
+        console.log(exprint.toString())
+    }
+}
+let rst=new Stacks()
+rst.push(1)
+rst.push(2)
+rst.push(3)
+rst.push(4)
+
+rst.print()
+console.log(rst.peek())
+console.log(rst.pop())
+console.log(rst.isEmpty())
+console.log(rst.print())
+
+    </script>
+</body>
+</html>

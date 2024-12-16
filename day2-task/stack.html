@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //===Stack Using Symbol& WeakMap
+        let _Arr=Symbol()
+class Stack{
+    constructor(){
+        this[_Arr]=[]
+    }
+    push(ele){
+        return this[_Arr].push(ele)
+    }
+    pop(){
+        return this[_Arr].pop()
+    }
+    peek(){
+       
+        return this[_Arr][this[_Arr].length - 1];
+    }
+    clear(){
+        return this[_Arr]=[]
+    }
+    size(){
+        return this[_Arr].length
+    }
+    isEmpty(){
+        return this[_Arr].length===0
+    }
+    print(){
+        console.log(this[_Arr].toString())
+    
+    }
+
+}
+let results=new Stack()
+results.push("A")
+results.push("B")
+results.push("c")
+results.push("D")
+results.print()
+console.log(results.peek())
+console.log(results.size())
+console.log(results.isEmpty())
+console.log(results.clear())
+
+
+
+
+let arr= new WeakMap()
+class stack1{
+    
+    constructor(){
+    arr.set(this,[])
+    }
+    
+    push(e){
+        let pushEle=arr.get(this)
+
+        return pushEle.push(e)
+    }
+    pop(){
+        let popEle=arr.get(this)
+        return popEle.pop()
+    }
+    peek(){
+        let peekEle=arr.get(this)
+        return peekEle[peekEle.length - 1]
+    }
+    isEmpty(){
+        let isemptyEle=arr.get(this)
+        return isemptyEle.length===0
+    }
+    size(){
+        let sizeEle=arr.get(this)
+        return sizeEle.length
+    }
+    clear(){
+        arr.set[this,[]]
+    }
+    print(){
+        let printEle=arr.get(this)
+        console.log(printEle.toString())
+    }
+    
+}
+let obj4=new stack1()
+obj4.push(1)
+obj4.push(2)
+obj4.push(3)
+obj4.push(4)
+obj4.print()
+console.log(obj4.peek())
+console.log(obj4.size())
+console.log(obj4.isEmpty())
+console.log(obj4.pop())
+console.log(obj4.clear())
+
+
+    </script>
+</body>
+</html>

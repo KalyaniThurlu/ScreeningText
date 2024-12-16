@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        //===Queue Using WeakMap & Symbol
+
+        let items=new WeakMap();
+        class Queue{
+            constructor(){
+                items.set(this,[])
+            }
+            push(ele){
+                let ref=items.get(this)
+                
+                ref.push(ele)
+            }
+            pop(){
+                let expop=items.get(this)
+                return expop.pop()
+            }
+            peek(){
+                let expeek=items.get(this)
+                return expeek[expeek.length-1]
+            }
+            clear(){
+               
+                items.set(this,[])
+            }
+            isEmpty(){
+                let exisempty=items.get(this)
+            
+            return exisempty.length===0
+        }
+        size(){
+            let exsize=items.get(this)
+            return exsize.length
+        }
+        print(){
+            let exprint=items.get(this)
+            console.log(exprint.toString())
+        }
+
+        }
+        let obj2=new Queue()
+        obj2.push("A")
+        obj2.push("B")
+        obj2.push("C")
+        obj2.print()
+        console.log(obj2.peek())
+        console.log(obj2.size())
+        console.log(obj2.pop())
+        console.log(obj2.isEmpty())
+        console.log(obj2.clear())
+
+
+
+let _Items=Symbol()
+class Queue1{
+    constructor(){
+        this[_Items]=[]
+    }
+    push(arr){
+        this[_Items].push(arr)
+
+    }
+    pop(){
+        return this[_Items].pop()
+    }
+    peek(){
+        return this[_Items][0]
+    }
+    size(){
+        return this[_Items].length
+    }
+    isEmpty(){
+        return this[_Items].length===0
+    }
+    clear(){
+        return this[_Items].length=0
+    }
+    print(){
+        console.log(this[_Items].toString())
+    }
+
+}
+let rst=new Queue1();
+rst.push("d")
+rst.push("f")
+rst.push("g")
+rst.push("e")
+rst.print()
+console.log(rst.peek())
+console.log(rst.size())
+console.log(rst.pop())
+
+console.log(rst.clear())
+console.log(rst.isEmpty())
+    </script>
+</body>
+</html>
