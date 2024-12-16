@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decimal To Binary Convert</title>
+</head>
+<body>
+    
+    <script>
+        class Binary{
+            #list=[]
+            constructor(value){
+                this.binaryconvert(value)
+            }
+            binaryconvert(value){
+                let num= value;
+                while(num>0){
+                    let rem=num % 2
+                    this.push(rem)
+
+                    num = Math.floor(num / 2)
+                }
+            }
+            push(rem){
+                this.#list.push(rem)
+            }
+
+            print(){
+                console.log(this.#list.reverse().join(''))
+            }
+        }
+        for(let i=1;i<=5;i++){
+            let bin=new Binary(i)
+            console.log(i)
+            bin.print()
+
+            let obj =new Binary(360)
+            let obj1=new Binary(37)
+            obj1.print()
+            obj.print()
+        }
+    </script>
+</body>
+</html>
