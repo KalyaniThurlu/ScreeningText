@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+</head>
+<body>
+    
+    <script>
+
+        let a = parseInt(prompt("Enter the first number"));
+        let b = parseInt(prompt("Enter the second number"));
+
+    
+        
+        class Addition {
+            func = "addition";
+            add = a + b;
+            print() {
+                document.write(`Addition: ${this.add}<br>`);
+            }
+        }
+
+        class Subtraction {
+            func = "subtraction";
+            sub = a - b;
+            print() {
+                document.write(`Subtraction: ${this.sub}<br>`);
+            }
+        }
+
+        class Multiplication {
+            func = "multiplication";
+            mul = a * b;
+            print() {
+                document.write(`Multiplication: ${this.mul}<br>`);
+            }
+        }
+
+        class Division {
+            func = "division";
+            div = a / b;
+            print() {
+                document.write(`Division: ${this.div}<br>`);
+            }
+        }
+
+       
+        
+        let Math = [];
+        Math[0] = new Addition();
+        Math[1] = new Subtraction();
+        Math[2] = new Multiplication();
+        Math[3] = new Division();
+
+     
+        
+        let calc = prompt("Enter which calculator operation to perform (addition, subtraction, multiplication, division)").toLowerCase();
+
+    
+        Math.map(element => {
+            if (calc === element.func) {
+                element.print();
+            }
+        });
+        
+    </script>
+</body>
+</html>

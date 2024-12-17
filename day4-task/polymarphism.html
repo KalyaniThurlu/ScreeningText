@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>polymorphism</title>
+</head>
+<body>
+    <script>
+
+        class AndroidVersion8{
+            Version="old version"
+            Feature1="Feature1"
+            Feature2="Feature2"
+print(){
+    document.write(`${this.Feature1}<br> ${this.Feature2}`)
+}
+
+        }
+        class AndroidVersion9 extends AndroidVersion8{
+            Version="new version"
+            Feature3="Feature3"
+            print(){
+                super.print()
+                document.write(`${this.Feature3}`)
+            }
+        }
+        let  obj=[]
+        obj[0]=new AndroidVersion8()
+        obj[1]= new AndroidVersion9()
+        let rst=prompt("enter old version | new version".toLowerCase())
+        obj.map((ele)=>{
+            if(rst===ele.Version.toLowerCase()){
+                ele.print()
+
+            }
+
+        })
+    </script>
+</body>
+</html>
