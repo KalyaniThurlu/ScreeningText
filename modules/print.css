@@ -1,0 +1,10 @@
+
+.container {
+    display: grid;
+    grid-template-columns: 12fr;
+    background-color: lightgray;
+    padding: 20px;
+}
+aside {
+    display: none;
+}
