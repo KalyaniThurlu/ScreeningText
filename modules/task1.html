@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modules | Project</title>
+    <script type="module">
+      
+      
+        setTimeout(async () => {
+           
+            
+            document.getElementById("add").addEventListener("click", async () => {
+                document.querySelector("p").innerHTML = "Loading, please wait...";
+                const module = await import("./demo.js");
+                const num1 = parseInt(prompt("Enter Number 1"));
+                const num2 = parseInt(prompt("Enter Number 2"));
+                if (!isNaN(num1) && !isNaN(num2)) {
+                    document.querySelector("p").innerHTML = `Addition = ${module.Addition(num1, num2)}`;
+                } else {
+                    document.querySelector("p").innerHTML = "Invalid input. Please enter numbers.";
+                }
+            });
+
+          
+            
+            document.getElementById("hello").addEventListener("click", async () => {
+                const module = await import("./demo.js");
+                document.querySelector("p").innerHTML = `${module.Hello('John')}`;
+            });
+        }, 5000); 
+    </script>
+</head>
+<body>
+    <button id="add">Addition</button>
+    <button id="hello">Hello</button>
+    <p>Loading, please wait...</p>
+</body>
+</html>

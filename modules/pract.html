@@ -1,0 +1,128 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation with Review Page</title>
+    <style>
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("Formsubmit").onsubmit = function (event) {
+                event.preventDefault();
+
+                
+                document.querySelectorAll(".error").forEach(el => el.innerText = "");
+
+                const name = document.getElementById("name").value.trim();
+                const age = document.getElementById("age").value.trim();
+                const city = document.getElementById("city").value;
+                const gender = document.querySelector('input[name="gender"]:checked');
+                const dob = document.getElementById("dob").value;
+
+                let isValid = true;
+
+                
+                if (!name || name.length < 4 || name.length > 15) {
+                    document.getElementById("nameError").innerText = "Name must be between 4 and 15 characters.";
+                    isValid = false;
+                }
+
+                
+                if (!age || age < 15 || age > 40) {
+                    document.getElementById("ageError").innerText = "Age must be between 15 and 40.";
+                    isValid = false;
+                }
+
+                
+                if (!city) {
+                    document.getElementById("cityError").innerText = "Please select a city.";
+                    isValid = false;
+                }
+
+                
+                if (!gender) {
+                    document.getElementById("genderError").innerText = "Please select a gender.";
+                    isValid = false;
+                }
+
+              
+                
+                if (!dob) {
+                    document.getElementById("dobError").innerText = "Date of Birth is required.";
+                    isValid = false;
+                }
+
+               
+                
+                if (isValid) {
+                    const data = {
+                        name,
+                        age,
+                        city,
+                        gender: gender.value,
+                        dob,
+                    };
+
+                  
+                    sessionStorage.setItem("formData",JSON.stringify(data))
+
+                 
+                    
+                    window.location.href = "review.html";
+                }
+            };
+        });
+    </script>
+</head>
+<body>
+    <form id="Formsubmit">
+        <h1>Form</h1>
+        <div>
+            <dl>
+                <dt>Name:</dt>
+                <dd>
+                    <input type="text" id="name">
+                    <div class="error" id="nameError"></div>
+                </dd>
+
+                <dt>Age:</dt>
+                <dd>
+                    <input type="number" id="age">
+                    <div class="error" id="ageError"></div>
+                </dd>
+
+                <dt>City:</dt>
+                <dd>
+                    <select id="city">
+                        <option value="">Select a city</option>
+                        <option value="hyd">Hyderabad</option>
+                        <option value="blr">Bangalore</option>
+                    </select>
+                    <div class="error" id="cityError"></div>
+                </dd>
+
+                <dt>Gender:</dt>
+                <dd>
+                    <input type="radio" name="gender" value="male"> Male
+                    <input type="radio" name="gender" value="female"> Female
+                    <div class="error" id="genderError"></div>
+                </dd>
+
+                <dt>Date of Birth:</dt>
+                <dd>
+                    <input type="date" id="dob">
+                    <div class="error" id="dobError"></div>
+                </dd>
+            </dl>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

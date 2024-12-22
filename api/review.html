@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Page</title>
+    
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        
+            
+            const data = JSON.parse(sessionStorage.getItem("formData"));
+
+          
+            
+            if (data) {
+                document.getElementById("name").innerText = data.name;
+                document.getElementById("age").innerText = data.age;
+                document.getElementById("city").innerText = data.city;
+                document.getElementById("gender").innerText = data.gender;
+                document.getElementById("dob").innerText = data.dob;
+            } else {
+                alert("No data found. Redirecting to form...");
+                window.location.href = "index.html";
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1> Details</h1>
+        <dl>
+            <dt>Name:</dt>
+            <dd id="name"></dd>
+
+            <dt>Age:</dt>
+            <dd id="age"></dd>
+
+            <dt>City:</dt>
+            <dd id="city"></dd>
+
+            <dt>Gender:</dt>
+            <dd id="gender"></dd>
+
+            <dt>Date of Birth:</dt>
+            <dd id="dob"></dd>
+        </dl>
+    </div>
+</body>
+</html>
