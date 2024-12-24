@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <script>
+      function Submit() {
+        let user = document.querySelector("input").value;
+        localStorage.setItem("user", user);
+        let storage = localStorage.getItem("user");
+        if (storage) {
+          location.href = "./dashboard.html";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div>
+      <h1>Login</h1>
+      <span>UserId</span>
+      <input type="text" name="user" />
+      <button onclick="Submit()">Submit</button>
+    </div>
+  </body>
+</html>

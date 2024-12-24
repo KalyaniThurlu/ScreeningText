@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function BodyLoad() {
+        let id = sessionStorage.getItem("user");
+        document.querySelector("h3").innerHTML = id;
+
+        if (!id) {
+          location.href = "./login.html";
+        }
+        CheckInactive();
+      }
+      function SignOut() {
+        sessionStorage.removeItem("user");
+        location.href = "./login.html";
+      }
+      function Dash() {
+        location.href = "./dashboard.html";
+      }
+      function CheckInactive() {
+        let task;
+        function Active() {
+          clearInterval(task);
+          task = setTimeout(SignOut, 5000);
+        }
+        document.onkeypress = Active;
+        document.onscroll = Active;
+        document.onmousemove = Active;
+        document.ontouchstart = Active;
+
+        Active();
+      }
+    </script>
+  </head>
+  <body onload="BodyLoad()">
+    <div>
+      <h2>User Account</h2>
+      <h3></h3>
+      <button onclick="SignOut()">SignOut</button>
+      <button onclick="Dash()">DashBoard</button>
+    </div>
+  </body>
+</html>

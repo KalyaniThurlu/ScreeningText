@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DashBoard</title>
+    <script>
+      function BodyLoad() {
+        const id = localStorage.getItem("user");
+        document.querySelector("p").innerHTML = id;
+
+        if (!id) {
+          location.href = "./login.html";
+        }
+        CheckInactive();
+      }
+      function SignOut() {
+        localStorage.removeItem("user");
+        location.href = "./login.html";
+      }
+      function SingnIn() {
+        location.href = "./account.html";
+      }
+      function CheckInactive() {
+        let task;
+        function Active() {
+          clearInterval(task);
+          task = setTimeout(SignOut, 5000);
+        }
+        document.onkeypress = Active;
+        document.onscroll = Active;
+        document.onmousemove = Active;
+        document.ontouchstart = Active;
+
+        Active();
+      }
+    </script>
+  </head>
+  <body onload="BodyLoad()">
+    <div>
+      <h2>User DashBoard</h2>
+    
+      <p></p>
+   
+      
+      <br /><button onclick="SingnIn()">Sign in</button
+      ><button onclick="SignOut()">Sign Out</button>
+    </div>
+  </body>
+</html>
+<!--Local-Storage with inactive timeout>
