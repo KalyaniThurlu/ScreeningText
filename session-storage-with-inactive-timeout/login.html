@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
     <script>
-      function Submit() {
+      function submit() {
         let user = document.querySelector("input").value;
         sessionStorage.setItem("user", user);
         let auth = sessionStorage.getItem("user");
@@ -20,7 +20,7 @@
       <h1>Login</h1>
       <span>UserId</span>
       <input type="text" name="user" />
-      <button onclick="Submit()">Submit</button>
+      <button onclick="submit()">Submit</button>
     </div>
   </body>
 </html>

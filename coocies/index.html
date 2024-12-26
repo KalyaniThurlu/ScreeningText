@@ -1,0 +1,43 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var dashItems = [];
+        function ViewDash(){
+           var now = new Date();
+           dashItems.push(`${location.hash.slice(1)} - ${now.toLocaleTimeString()}`);
+           document.getElementById("dashboard").innerHTML = `Your Viewed :<br> ${dashItems.join("<br>")}`;
+        }
+    </script>
+</head>
+<body>
+    <button onclick="ViewDash()">View Dash</button>
+    <div id="dashboard">
+
+    </div>
+    <h2>Shopping</h2>
+    <a href="#electronics"> Electronics </a> |
+    <a href="#fashion"> Fashion </a> |
+    <a href="#footwear"> Footwear </a>
+    <h4>Home</h4>
+    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam sapiente molestias soluta accusantium? Recusandae, optio voluptatibus. Neque, doloremque numquam voluptas praesentium ipsum corporis magnam eius, quaerat et, dolores vero a! Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat asperiores soluta molestiae sint ex illo at architecto commodi natus sequi ipsa veritatis necessitatibus aliquam inventore incidunt veniam, modi perspiciatis! Doloremque. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem enim autem explicabo maiores quisquam illum error pariatur sapiente, ducimus facere recusandae dignissimos obcaecati placeat blanditiis sit quod itaque? Odit, minus.</p>
+    <h4 id="fashion">Fashion</h4>
+    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam sapiente molestias soluta accusantium? Recusandae, optio voluptatibus. Neque, doloremque numquam voluptas praesentium ipsum corporis magnam eius, quaerat et, dolores vero a! Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat asperiores soluta molestiae sint ex illo at architecto commodi natus sequi ipsa veritatis necessitatibus aliquam inventore incidunt veniam, modi perspiciatis! Doloremque. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem enim autem explicabo maiores quisquam illum error pariatur sapiente, ducimus facere recusandae dignissimos obcaecati placeat blanditiis sit quod itaque? Odit, minus.</p>
+    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam sapiente molestias soluta accusantium? Recusandae, optio voluptatibus. Neque, doloremque numquam voluptas praesentium ipsum corporis magnam eius, quaerat et, dolores vero a! Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat asperiores soluta molestiae sint ex illo at architecto commodi natus sequi ipsa veritatis necessitatibus aliquam inventore incidunt veniam, modi perspiciatis! Doloremque. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem enim autem explicabo maiores quisquam illum error pariatur sapiente, ducimus facere recusandae dignissimos obcaecati placeat blanditiis sit quod itaque? Odit, minus.</p>
+    <h4 id="footwear">Footwear</h4>
+    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam sapiente molestias soluta accusantium? Recusandae, optio voluptatibus. Neque, doloremque numquam voluptas praesentium ipsum corporis magnam eius, quaerat et, dolores vero a! Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat asperiores soluta molestiae sint ex illo at architecto commodi natus sequi ipsa veritatis necessitatibus aliquam inventore incidunt veniam, modi perspiciatis! Doloremque. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem enim autem explicabo maiores quisquam illum error pariatur sapiente, ducimus facere recusandae dignissimos obcaecati placeat blanditiis sit quod itaque? Odit, minus.</p>
+    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam sapiente molestias soluta accusantium? Recusandae, optio voluptatibus. Neque, doloremque numquam voluptas praesentium ipsum corporis magnam eius, quaerat et, dolores vero a! Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat asperiores soluta molestiae sint ex illo at architecto commodi natus sequi ipsa veritatis necessitatibus aliquam inventore incidunt veniam, modi perspiciatis! Doloremque. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem enim autem explicabo maiores quisquam illum error pariatur sapiente, ducimus facere recusandae dignissimos obcaecati placeat blanditiis sit quod itaque? Odit, minus.</p>
+    <h4 id="electronics">Electronics</h4>
+    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam sapiente molestias soluta accusantium? Recusandae, optio voluptatibus. Neque, doloremque numquam voluptas praesentium ipsum corporis magnam eius, quaerat et, dolores vero a! Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat asperiores soluta molestiae sint ex illo at architecto commodi natus sequi ipsa veritatis necessitatibus aliquam inventore incidunt veniam, modi perspiciatis! Doloremque. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem enim autem explicabo maiores quisquam illum error pariatur sapiente, ducimus facere recusandae dignissimos obcaecati placeat blanditiis sit quod itaque? Odit, minus.</p>
+    
+</body>
+</html>
+
+
+	 
+

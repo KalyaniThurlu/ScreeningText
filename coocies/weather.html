@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        body {
+        
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color:gray;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+         
+            
+            border-radius: 10px;
+        
+            width: 90%;
+            max-width: 400px;
+        }
+
+        
+
+        .weather {
+            padding: 15px;
+            background-color: burlywood;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+            margin: 20px 0;
+        }
+
+        .temp {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 1.1rem;
+        }
+
+        
+        
+    </style>
+</head>
+<body onload="fetchWeather()">
+    <div class="container">
+        <h1>Weather</h1>
+        <div id="weather" class="weather">
+            <h2 id="city">Fetching Kadapa weather...</h2>
+            <img id="tempimg" src="" alt="Weather Icon">
+            <h3 id="temp" class="temp">°C</h3>
+            <p><strong>Humidity:</strong> <span id="humidity">--%</span></p>
+            <p><strong>Wind Speed:</strong> <span id="wind">-- km/h</span></p>
+        </div>
+    </div>
+
+    <script>
+        function fetchWeather() {
+        
+            
+            fetch('https://api.weatherstack.com/current?access_key=31467955610024a2305d00350e818006&query=kadapa')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.error) {
+                        throw new Error(data.error.info);
+                    }
+                    updateWeather(data);
+                })
+                .catch(error => {
+                    console.error(error.message);
+                    document.getElementById("weather").innerHTML = `
+                        <h3 class="error-message">Unable to fetch weather data</h3>
+                        <p>${error.message}</p>
+                    `;
+                });
+        }
+
+        function updateWeather(data) {
+            document.getElementById("temp").innerHTML = data.current.temperature + "°C";
+            document.getElementById("tempimg").src = data.current.weather_icons[0];
+            document.getElementById("humidity").innerHTML = data.current.humidity + "%";
+            document.getElementById("wind").innerHTML = data.current.wind_speed + " km/h";
+            document.getElementById("city").innerHTML = data.location.name;
+        }
+    </script>
+</body>
+</html>

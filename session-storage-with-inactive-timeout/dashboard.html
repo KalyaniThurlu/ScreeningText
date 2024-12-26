@@ -15,11 +15,11 @@
         }
         CheckInactive();
       }
-      function SignOut() {
+      function signOut() {
         sessionStorage.removeItem("user");
         location.href = "./login.html";
       }
-      function Settings() {
+      function signIn() {
         location.href = "./account.html";
       }
       function CheckInactive() {
@@ -41,8 +41,8 @@
     <div>
       <h2>User DashBoard</h2>
       <h3></h3>
-      <br /><button onclick="Settings()">Singn in</button
-      ><button onclick="SignOut()">Sign Out</button>
+      <br /><button onclick="signIn()">Singn in</button
+      ><button onclick="signOut()">Sign Out</button>
     </div>
   </body>
 </html>
