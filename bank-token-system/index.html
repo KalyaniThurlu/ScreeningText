@@ -1,0 +1,130 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Token</title>
+    <style>
+        .tokens{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+ 
+    
+    <script type="module">
+        import {queue} from "./index.js";
+        var token = new queue();
+        var tokenNum = 1;
+        var speech = new SpeechSynthesisUtterance();
+        
+        document.getElementById("genaratedToken").addEventListener("click", ()=>{
+            var username =prompt("Enter your name");
+            token.enqueue(`${tokenNum} ${username}`);
+            loadtokens();
+            alert("Token generated successfully");
+            tokenNum++;
+        })
+        function loadtokens(){
+            document.getElementById("lsttok").innerHTML = "";
+            for(var item of token.collection){
+                var option = document.createElement("option");
+                option.text = item;
+                document.getElementById("lsttok").appendChild(option);
+            }
+        }
+        document.getElementById("call1").addEventListener("click", ()=>{
+            if(token.collection.length == 0){
+                alert("There are no customers in the queue");
+            }
+            else{
+                document.getElementById("select1").innerHTML = "";
+                var option = document.createElement("option");
+                option.text = token.dequeue();
+                speech.text = `Token number ${option.text} please go to counter 1`;
+                window.speechSynthesis.speak(speech);
+                document.getElementById("select1").appendChild(option)
+            loadtokens();
+            }
+        })
+        document.getElementById("call2").addEventListener("click", ()=>{
+            if(token.collection.length == 0){
+                alert("There are no customers in the queue");
+            }
+            else{
+                document.getElementById("select2").innerHTML = "";
+                var option = document.createElement("option");
+                option.text = token.dequeue();
+                speech.text = `Token number ${option.text} please go to counter 2`;
+                window.speechSynthesis.speak(speech);
+                document.getElementById("select2").appendChild(option)
+                loadtokens();
+            }
+        })
+        document.getElementById("call3").addEventListener("click", ()=>{
+            if(token.collection.length == 0){
+                alert("There are no customers in the queue");
+            }
+            else{
+                document.getElementById("select3").innerHTML = "";
+                var option = document.createElement("option");
+                option.text = token.dequeue();
+                speech.text = `Token number ${option.text} please go to counter 3`;
+                window.speechSynthesis.speak(speech);
+                document.getElementById("select3").appendChild(option)
+                loadtokens();
+            }
+        })
+        function disabled() {
+            var checkbox1 = document.getElementById("check1");
+            var button1 = document.getElementById("call1");
+            button1.disabled = checkbox1.checked;
+
+            var checkbox2 = document.getElementById("check2");
+            var button2 = document.getElementById("call2");
+            button2.disabled = checkbox2.checked;
+
+            var checkbox3 = document.getElementById("check3");
+            var button3 = document.getElementById("call3");
+            button3.disabled = checkbox3.checked;
+        }
+        document.getElementById("check1").addEventListener("change", disabled);
+        document.getElementById("check2").addEventListener("change", disabled);
+        document.getElementById("check3").addEventListener("change", disabled);
+
+    </script>
+   
+   
+</head>
+<body> 
+    <div class="container-fluid">
+        
+    <h2 style="text-align: center;">Bank Token System</h2>
+    <div style="display: flex; justify-content: space-evenly;">
+        <div class="tokens">
+            <h3>Counter 1 <input id="check1" type="checkbox"></h3>
+            <select size="3" style="width: 150px;" id="select1"></select><br><br>
+            <button class="btn btn-primary mt-2" id="call1">Call Customer</button><br><br>
+        </div>
+        <div class="tokens ">
+            <h3>Counter 2 <input id="check2" type="checkbox"></h3>
+            <select size="3" style="width: 150px;" id="select2"></select><br><br>
+            <button class="btn btn-primary mt-2" id="call2">Call Customer</button>
+        </div>
+        <div class="tokens">
+            <h3>Counter 3 <input id="check3" type="checkbox"></h3>
+            <select size="3" style="width: 150px;" id="select3"></select><br><br>
+            <button class="btn btn-primary mt-2" id="call3">Call Customer</button><br><br>
+        </div>
+    </div>    
+    
+    <div class="mt-5">
+        <select size="3" style="width: 100%;" id="lsttok"></select> <br><br>
+    </div>
+    <button id="genaratedToken" class="btn btn-success d-block mx-auto">Generate Token</button> 
+</div>
+</body>
+</html>
