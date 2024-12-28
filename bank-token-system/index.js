@@ -1,5 +1,5 @@
 
-export class queue{
+export  class queue{
     constructor(){
         this.collection=[];
     }

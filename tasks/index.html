@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks</title>
+    <script>
+function TitleCase(str) {
+  result = str.split(" ");
+  var word = "";
+  for (var i = 0; i < result.length; i++) {
+    word+= result[i][0].toUpperCase() + result[i].slice(1).toLowerCase() + " ";
+  }
+  return word;
+}
+rst = TitleCase("welcome to javaScript");
+console.log(rst);
+
+
+function Reverse(str1){
+    var reversed=""
+    for(let i=str1.length-1; i>=0;i--){
+        reversed+=str1[i]
+
+
+    }
+    return reversed
+}
+    
+let results=Reverse("wellcome")
+console.log(results)
+
+
+function CheckPalindrome(word) {
+    let reversedWord = ""; 
+
+
+    
+    for (let i = word.length - 1; i >= 0; i--) {
+        reversedWord += word[i]; 
+    }
+
+  
+    
+    return word === reversedWord;
+}
+console.log(CheckPalindrome("madam")); 
+console.log(CheckPalindrome("hello")); 
+
+
+
+
+
+function numToWord(num) {
+  let ones = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 
+              'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
+  let tens = ['twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
+
+  if (num === 0) {
+    return 'Zero';
+  }
+
+  let results = '';
+
+  if (num >= 1000) {
+    results += ones[Math.floor(num / 1000) - 1] + ' thousand ';
+    num %= 1000;
+  }
+
+  if (num >= 100) {
+    results += ones[Math.floor(num / 100) - 1] + ' hundred ';
+    num %= 100;
+  }
+
+  if (num >= 20) {
+    results += tens[Math.floor(num / 10) - 2] + ' ';
+    num %= 10;
+  }
+
+  if (num > 0) {
+    results += ones[num - 1] + ' ';
+  }
+
+  return results.trim();
+}
+console.log(numToWord(635)); 
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
