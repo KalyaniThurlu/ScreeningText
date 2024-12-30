@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Big o Notation</title>
+</head>
+<body>
+    <script>
+        //1.==constant time algorithm==
+        function BigoNatation(n){
+
+            var startTime=performance.now()
+            for(let i =1;i<=n;i++){
+                console.log(i)
+            }
+                var endTime=performance.now()
+                var totalTime=endTime-startTime
+                return totalTime
+            }
+        
+        document.write(`total excution time:${BigoNatation(40)}ms`)
+
+     
+      //==2.Linear Time Algorithm=== 
+    function Natation(url,searchString){
+        fetch(url)
+        .then(function(response){
+            var convertStart=performance.now()
+            var jsonData=response.json()
+            var convertEnd=performance.now()
+            var totalConversionTime=convertEnd-convertStart
+            console.log(totalConversionTime)
+            return jsonData;
+
+
+        })
+        .then(products=>{
+            var filterStart=performance.now()
+            var rst=products.filter(product=>product.category===searchString)
+            var endFilter=performance.now()
+            var totalConversionTime=endFilter-filterStart
+            rst.map(item=>console.log(item.title))
+
+        })
+
+
+
+    }
+    Natation("https://fakestoreapi.com/products", "men's clothing")
+//==3.quadratic Time Algorithm===
+
+    function findAllPairs(arr) {
+    for (let i = 0; i < arr.length; i++) { 
+        for (let j = 0; j < arr.length; j++) {
+            console.log(`Pair: (${arr[i]}, ${arr[j]})`);
+        }
+    }
+}
+
+findAllPairs([1, 2, 3]);
+
+
+
+        </script>
+    
+</body>
+</html>
