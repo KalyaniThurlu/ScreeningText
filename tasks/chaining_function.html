@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+/*
+function Validate(str){
+         var name = "";
+        return {
+            required: function(){
+                 if(str==="") {
+                   document.write("Name required<br>");
+                } 
+                 return this;
+             },
+             minlength: function(n){
+                if(str.length<n) {
+                    document.write("Name too short<br>");
+                } else {
+                    name = str
+                }
+                return this;
+             },
+             Print:function(){
+                document.write(name);
+             }
+         }
+     }
+     Validate(prompt("Enter Name")).minlength(4).required().Print();
+*/
+
+   
+             
+     function Calculator(a,b){
+    return{
+        add:function(){
+            return a+b
+        },
+        sub:function(){
+            return a-b
+        },
+        multi:function(){
+            return a*b
+        },
+        div:function(){
+            if(b!==0){
+                a / b
+
+            }else{
+                return "can't invalid"
+            }
+
+        },
+        print:function(){
+            switch(oparation.toLowerCase()){
+                case "addition":
+                    document.write("results" + this.add())
+                    break;
+                    case "subtraction":
+                        document.write("results"+ this.sub())
+                        break;
+                        case multiplication:
+                            document.write("results" + this.multi())
+                            break;
+                            case "division":
+                            document.write("results"+this.div())
+                            default:
+                             document.write("add a valid num addition,subtraction,multiplication,division")  
+                            
+
+
+            }
+
+        }
+    }
+
+
+}
+const num1=parseFloat(prompt("enter first number"))
+const num2=parseFloat(prompt("enter second number"))
+const calc=Calculator(num1,num2)
+const oparation=prompt("enter number addition,subtraction,multiplication,division")
+
+calc.print(oparation)
+        
+   
+     
+        
+        </script>
+    
+</body>
+</html>
