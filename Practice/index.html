@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks</title>
+</head>
+<body>
+    <script>
+
+function filter(arr,fn){
+  const filterArr=[]
+  for(let i= 0;i < arr.length;i++){
+if(fn(arr[i],i)){
+  filterArr.push(arr[i])
+
+}
+
+}
+return filterArr
+
+}
+const arr=[0,30,40,50];
+
+const fn=function filterArrd(n){
+  return n > 10
+
+}
+const newArray=filter(arr,fn)
+console.log(newArray)
+
+
+function arrayReduceTransformation(nums,fn1,init){
+  let val = init
+  for(let i = 0 ;i < nums.length; i++){
+
+    val=fn1(val,nums[i])
+
+
+
+  }
+  return val
+
+}
+let nums=[2,3,4,5]
+let fn1=function sum(accu,current){
+  return accu + current
+
+}
+const init=0
+let Rst=arrayReduceTransformation(nums,fn1,init)
+console.log(Rst)
+
+var createdFunction=function(init){
+    var current=init
+    return {
+        increment: function(){
+            current++
+            return current;
+
+
+        },
+        decrement:function(){
+            current--;
+            return current;
+
+        },
+        reset:function(){
+           current=init;
+            return current;
+        }
+
+    }
+}
+var results=createdFunction(5)
+console.log(results.increment())
+console.log(results.decrement())
+console.log(results.decrement())
+
+    </script>
+    
+</body>
+</html>
