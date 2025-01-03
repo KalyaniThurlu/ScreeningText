@@ -77,6 +77,35 @@ console.log(results.increment())
 console.log(results.decrement())
 console.log(results.decrement())
 
+var compose=function(functions){
+  return function(x){
+    return functions.reduceRight((acc,fn)=>fn(acc),x)
+
+  }
+}
+const answerFn=compose([x => x + 1, x => 2 * x ])
+console.log(answerFn(3))
+
+
+
+var compose1=function(functions){
+  return function(x){
+    return functions.reduceRight((acc,fn)=>fn(acc),2)
+
+  }
+
+
+}
+let compose1Fn=compose1([x=>x+1,x=>2*x])
+console.log(compose1Fn(2))
+var argumentsLength=function(...args){
+  return args.length
+
+}
+console.log(argumentsLength(2,"hi",null,{}))
+
+
+
     </script>
     
 </body>
