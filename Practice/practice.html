@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+var isEmpty=function(obj){
+    return obj == null || Object.keys(obj).length===0
+  
+  }
+  console.log(isEmpty({}))
+  console.log(isEmpty({"j":2}))
+  
+  
+  function splitArray(arr, size) {
+    let result = [];
+    for (let i = 0; i < arr.length; i += size) {
+      result.push(arr.slice(i, i + size));
+    }
+    return result;
+  }
+  
+  
+  const arr = [1, 2, [3],[4],[5]];
+  const size = 1;
+  console.log(splitArray(arr, size));
+  
+  function splitArray1(arr,size){
+    let result = []
+    for(let i = 0 ; i < arr.length; i+=size){
+      result.push(arr.slice(i, i +size ))
+  
+  
+    }
+    return result
+  
+  
+  }
+  
+
+
+
+</script>
+
+
+
+  
+    
+</body>
+</html>
