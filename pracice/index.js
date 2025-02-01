@@ -255,3 +255,41 @@ function conditionalStatements(a, b, c) {
 }
 
 conditionalStatements(10, 20, 30);
+//==Async And Await====
+
+async function getData() {
+  try {
+    const response = await fetch(
+      "https://fakestoreapi.com/products/categories"
+    );
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+getData();
+//==promise===
+
+const myPromise = new Promise((reject, resolve) => {
+  const success = true;
+  if (success) {
+    resolve("operation successfull");
+  } else {
+    reject("operaion falied");
+  }
+});
+myPromise
+  .then((results) => {
+    console.log(results);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+  //==Eventloop===
+
+console.log("start");
+setTimeout(() => {
+  console.log("task 1 executed ofter 2 1 2 seconds");
+}, 2000);
+console.log("end");
